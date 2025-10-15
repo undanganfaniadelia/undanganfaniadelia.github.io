@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan Fani & Adelia</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    
+    <style>
+        /* Define Custom Colors and Fonts */
+        :root {
+            --kultural-pink: #D4A3AE; /* Muted Blush Pink */
+            --kultural-dark: #4A3F3F; /* Deep Brown/Gray for text */
+            --cover-text: #70424A; /* Warna Dark Blush untuk teks di Cover */
+            --cover-button-bg: #E8B4C0; /* Warna tombol cover yang lebih terang */
+            --classic-gold: #9e815e; /* Warna emas klasik untuk detail */
+            --jawa-light-brown: #E4C8A6; /* Warna latar dasar yang lebih terang */
+            --jawa-mid-brown: #C9A47B; /* Warna mid-brown untuk tekstur */
+        }
+        
+        .kultural-text { color: var(--kultural-dark); }
+        .kultural-bg { background-color: var(--kultural-pink); }
+        .gallery-bg { background-color: #F8EFEF; }
+        .gold-text { color: var(--classic-gold); }
+        .cover-text-color { color: var(--cover-text); }
+        .cover-btn-bg { background-color: var(--cover-button-bg); }
+
+
+        /* Import Google Fonts: Inter (body) and Great Vibes (decorative) */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes:wght@400;700&family=Inter:wght@300;400;600;700&display=swap');
+        
+        /* UPDATED BODY STYLE */
+        body { 
+            font-family: 'Inter', sans-serif; 
+            background-color: #FDF9F9; /* Lebih putih */
+            
+            /* Background Ornamen Vertikal untuk Section Main Content */
+            background-image: url('https://undanganonline.42web.io/tema/BG-6-red-tema-art-jawa.jpg'); 
+            background-repeat: repeat-y; 
+            background-size: contain; 
+            background-position: center top; 
+            background-attachment: scroll;
+        }
+
+        /* Container utama agar konten tetap berada di area putih di antara ornamen */
+        #main-content > div {
+            background-color: transparent; /* Sekarang transparan */
+            box-shadow: none; /* Hapus shadow */
+        }
+
+        .script-font { font-family: 'Great Vibes', cursive; }
+
+        /* Subtle Kultural border effect using pseudo-elements */
+        .kultural-card {
+            position: relative;
+            padding: 1.5rem;
+        }
+
+        .kultural-card::before, .kultural-card::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            border-color: var(--kultural-pink);
+            border-style: solid;
+            opacity: 0.8;
+        }
+
+        .kultural-card::before {
+            top: 0;
+            left: 0;
+            border-width: 2px 0 0 2px;
+            border-radius: 8px 0 0 0;
+        }
+
+        .kultural-card::after {
+            bottom: 0;
+            right: 0;
+            border-width: 0 2px 2px 0;
+            border-radius: 0 0 8px 0;
+        }
+        
+        /* --- COVER SECTION STYLING (TIDAK BERUBAH) --- */
+        #cover {
+            height: 100vh;
+            width: 100vw;
+            /* Mempertahankan URL Latar Belakang Sampul */
+            background-image: url('https://undanganonline.42web.io/tema/filter.jpg');
+            background-size: cover;
+            background-position: center; 
+            transition: opacity 1s ease-in-out;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 30; 
+            overflow: hidden; 
+        }
+        
+        #cover-overlay {
+           display: none; 
+        }
+        
+        /* Teks Cover diatur menggunakan warna dark blush baru */
+        .kultural-text-cover { color: var(--cover-text); }
+        
+        /* Frame Ornamen */
+        #cover-ornament {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Menggunakan gambar yang Anda unggah sebagai referensi bingkai */
+            background-image: url('uploaded:Screenshot_20251014-120708_Chrome.jpg-a1b7a43b-1b17-45cb-aaa5-87676df6b230');
+            background-size: cover;
+            background-position: center;
+            z-index: 15; 
+            pointer-events: none; 
+        }
+
+        /* --- COUPLE SECTION STYLING (UPDATED: Background Removed) --- */
+        #couple-details {
+            /* Menghapus semua properti background agar section ini transparan */
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Frame/Arch Styling meniru foto */
+        .couple-photo-container {
+            width: 80%; /* Lebar di mobile */
+            max-width: 300px;
+            margin: 0 auto;
+            border: 4px solid var(--classic-gold); /* Bingkai emas tipis */
+            background-color: white; /* Memberi warna putih pada area foto */
+            border-radius: 1.5rem; /* Pembulatan di sudut */
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .couple-photo-clip {
+            /* Membuat lengkungan di atas foto */
+            border-top-left-radius: 50% 100%;
+            border-top-right-radius: 50% 100%;
+            overflow: hidden;
+            width: 100%;
+            aspect-ratio: 1 / 1.5; /* Rasio potret yang lebih tinggi */
+            
+            /* Menggunakan mask/clip untuk meniru bentuk arch di foto */
+            mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path fill="white" d="M0 150 L0 25 Q50 0 100 25 L100 150 Z"/></svg>');
+            -webkit-mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 150"><path fill="white" d="M0 150 L0 25 Q50 0 100 25 L100 150 Z"/></svg>');
+            mask-size: 100% 100%;
+            -webkit-mask-size: 100% 100%;
+            mask-repeat: no-repeat;
+            -webkit-mask-repeat: no-repeat;
+            
+            /* Mengganti border-radius dengan clip-path yang mirip arch tradisional */
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+        }
+
+        /* Foto itu sendiri */
+        .couple-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Styling untuk tulisan "Putra/Putri dari" */
+        .parent-detail {
+            font-size: 1rem;
+            font-weight: 400;
+            color: var(--kultural-dark);
+            line-height: 1.5;
+        }
+        .parent-name {
+            font-size: 1.1rem;
+            color: var(--kultural-dark);
+            font-weight: 500;
+            margin-top: 4px;
+        }
+        
+        /* Dekorasi pemisah yang lebih halus */
+        .name-separator {
+            width: 50px;
+            height: 2px;
+            background-color: var(--classic-gold);
+            margin: 1rem auto;
+            opacity: 0.8;
+        }
+        
+        /* Peta Google Maps */
+        .map-container iframe {
+            width: 100%;
+            height: 400px;
+        }
+        
+        /* UPDATE: Styling untuk menyatukan Countdown Section */
+        #countdown-container {
+            background-color: rgba(255, 255, 255, 0.75); /* White semi-transparent background */
+            backdrop-filter: blur(2px); /* Efek blur ringan */
+        }
+        .logo-harian {
+            width: 150px;
+            height: auto;
+            margin: 0 auto 1.5rem auto;
+            display: block;
+            opacity: 0.9;
+        }
+        
+        /* --- WEDDING GIFT STYLING --- */
+        .bank-card {
+            background-color: white;
+            border: 1px solid #f3e5f5;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        .copy-button {
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .copy-button:hover {
+            opacity: 0.9;
+        }
+        .copy-status {
+            font-size: 0.875rem; /* text-sm */
+            color: green;
+            margin-top: 0.5rem;
+        }
+
+
+        /* --- FOOTER STYLING --- */
+        #app-footer {
+            position: relative; 
+            overflow: hidden;   
+            padding: 5rem 0; 
+            margin-top: 4rem; 
+            color: var(--kultural-dark); 
+            text-shadow: none; 
+            box-shadow: none; 
+            text-align: center;
+            z-index: 1; 
+            background-color: transparent; 
+        }
+
+        /* Pseudo-element ::before untuk background sudah dihapus di permintaan sebelumnya */
+        
+        #app-footer h2, #app-footer p {
+            color: var(--kultural-dark); 
+        }
+        /* Container untuk teks agar lebarnya sesuai konten utama */
+        #app-footer .footer-content-container {
+            max-width: 4xl; 
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem; 
+            padding-right: 1rem;
+        }
+
+    </style>
+</head>
+<body class="kultural-text">
+
+    
+
+<div id="lightbox" class="fixed inset-0 bg-black bg-opacity-95 z-50 hidden flex justify-center items-center p-4" onclick="closeLightbox(event)">
+        <div id="lightbox-container" class="relative w-full h-full max-w-5xl max-h-full">
+            <img id="lightbox-image" src="" alt="Enlarged Wedding Photo" class="max-w-full max-h-full object-contain mx-auto transition-opacity duration-300">
+            
+            
+
+<button class="absolute top-4 right-4 text-white text-4xl p-2 rounded-full hover:bg-white/20 transition duration-200 z-10" onclick="closeLightbox(event)">
+                &times;
+            </button>
+            
+            
+
+<button id="lightbox-prev" class="absolute left-0 top-1/2 transform -translate-y-1/2 text-white p-4 text-3xl opacity-70 hover:opacity:100 transition duration-200" onclick="prevImage(event)">
+                &#10094;
+            </button>
+            <button id="lightbox-next" class="absolute right-0 top-1/2 transform -translate-y-1/2 text-white p-4 text-3xl opacity-70 hover:opacity:100 transition duration-200" onclick="nextImage(event)">
+                &#10095;
+            </button>
+        </div>
+    </div>
+    
+
+<div id="cover" class="flex flex-col justify-center items-center text-center p-6">
+        
+
+<div id="cover-ornament" class="z-15"></div>
+
+        
+
+<div id="cover-frame" class="w-full max-w-sm mx-auto z-20 p-4 md:p-8">
+            <p class="text-xl mb-2 kultural-text-cover font-semibold">The Wedding Of</p>
+            <h1 class="script-font text-7xl md:text-9xl kultural-text-cover leading-none">Fani & Adelia</h1>
+            <p class="text-base mt-4 mb-6 kultural-text-cover font-semibold">Minggu, 14 Desember 2025</p>
+            <div class="w-2/3 h-px cover-text-color mx-auto my-4 opacity-70" style="background-color: var(--cover-text);"></div> 
+
+<p class="text-sm kultural-text-cover mb-6 font-light">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <p id="guest-name" class="text-2xl font-bold mb-8 kultural-text-cover" style="text-shadow: none;">Tamu Undangan</p>
+            <button id="open-btn" class="cover-btn-bg text-white font-semibold py-3 px-8 rounded-full shadow-lg transition duration-300 transform hover:scale-105">
+                Buka Undangan
+            </button>
+        </div>
+    </div>
+
+    
+
+<audio id="background-audio" loop preload="auto">
+        
+
+<source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    
+
+<button id="music-toggle" class="fixed bottom-4 right-4 z-40 p-3 kultural-bg text-white rounded-full shadow-lg hidden">
+        <svg id="music-on" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 5 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l1.207-1.207c.806-.806 2.213-.806 3.019 0l.582.582V15l-.582.582c-.806.806-2.213.806-3.019 0L5.586 15z" />
+        </svg>
+        <svg id="music-off" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l1.207-1.207c.806-.806 2.213-.806 3.019 0l.582.582V15M17 14l2-2m0 0l2-2m-2 2l-2-2m-2-2l-2 2M15 9l2-2m0 0l2-2m-2 2l-2-2m-2 2l-2-2" />
+        </svg>
+    </button>
+
+
+    
+
+<main id="main-content" class="min-h-screen pt-4 pb-16 hidden">
+        
+
+<div class="max-w-4xl mx-auto px-4 lg:px-12 py-8 rounded-xl">
+            
+            
+            
+
+<!-- VIDEO MOTION/INTRO DIHAPUS DARI SINI -->
+
+
+            
+
+<section class="text-center py-16 reveal">
+                <p class="text-sm font-light uppercase tracking-widest mb-2">Dengan memohon rahmat dan ridho Allah SWT</p>
+                <h2 class="script-font text-5xl mb-6 kultural-text">Fani & Adelia</h2>
+                <div class="max-w-xl mx-auto">
+                    <p class="text-base leading-relaxed">
+                        "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan-pasangan dari jenismu sendiri, supaya kamu cenderung dan merasa tenteram kepadanya, dan dijadikan-Nya di antaramu rasa kasih dan sayang. Sesungguhnya pada yang demikian itu benar-benar terdapat tanda-tanda bagi kaum yang berfikir."
+                        <br><em class="text-sm mt-2 block">(QS. Ar-Rum: 21)</em>
+                    </p>
+                </div>
+            </section>
+            
+            
+
+<section id="couple-details" class="text-center py-16 reveal">
+                <div class="w-full max-w-sm mx-auto">
+                    
+                    
+
+<div class="mb-10">
+                        
+
+<div class="couple-photo-container">
+                            <div class="couple-photo-clip">
+                                
+
+<img src="https://placehold.co/400x600/C9A47B/FFFFFF?text=FANI" alt="Foto Fani" class="couple-photo">
+                            </div>
+                        </div>
+                        
+                        
+
+<h3 class="script-font text-5xl gold-text mt-6 mb-2" style="color: var(--kultural-dark);">Fani Risaldi</h3>
+                        <div class="parent-detail mt-4">
+                            Putra Ketiga dari :
+                            <p class="parent-name">Bapak ... & Ibu ...</p>
+                        </div>
+                    </div>
+
+                    
+
+<div class="py-6 px-4 mb-10">
+                        <span class="script-font text-7xl gold-text block leading-none" style="color: var(--kultural-dark);">&</span>
+                        <div class="name-separator"></div>
+                    </div>
+
+                    
+
+<div class="mb-10">
+                        
+
+<div class="couple-photo-container">
+                            <div class="couple-photo-clip">
+                                
+
+<img src="https://placehold.co/400x600/C9A47B/FFFFFF?text=ADELIA" alt="Foto Adelia" class="couple-photo">
+                            </div>
+                        </div>
+                        
+                        
+
+<h3 class="script-font text-5xl gold-text mt-6 mb-2" style="color: var(--kultural-dark);">Adelia Mei Fadilla</h3>
+                        <div class="parent-detail mt-4">
+                            Putri Kedua dari :
+                            <p class="parent-name">Bapak ... & Ibu ...</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+
+<section id="gallery" class="py-16 reveal gallery-bg rounded-xl shadow-inner border border-pink-100">
+                <h2 class="script-font text-5xl text-center kultural-text">Our Gallery</h2>
+                <p class="text-center mb-10 text-lg font-light italic kultural-text">Every love story is beautiful, but ours is my favorite.</p>
+                
+                
+
+<div class="grid grid-cols-2 sm:grid-cols-3 gap-3 md:gap-5 px-4 max-w-3xl mx-auto" id="photo-gallery">
+                    
+                    
+
+<div class="aspect-square">
+                        <img src="https://undanganonline.42web.io/Foto/IMG_8618.JPG" 
+                             alt="Foto Pernikahan 1" 
+                             class="gallery-image"
+                             onclick="openLightbox('https://undanganonline.42web.io/Foto/IMG_8618.JPG')">
+                    </div>
+                    
+                    
+
+<div class="aspect-square">
+                        <img src="https://undanganonline.42web.io/Foto/IMG_8618.JPG" 
+                             alt="Foto Pernikahan 2" 
+                             class="gallery-image"
+                             onclick="openLightbox('https://undanganonline.42web.io/Foto/IMG_8618.JPG')">
+                    </div>
+
+                    
+
+<div class="aspect-square">
+                        <img src="https://undanganonline.42web.io/Foto/IMG_8618.JPG" 
+                             alt="Foto Pernikahan 3" 
+                             class="gallery-image"
+                             onclick="openLightbox('https://undanganonline.42web.io/Foto/IMG_8618.JPG')">
+                    </div>
+
+                    
+
+<div class="aspect-square">
+                        <img src="https://undanganonline.42web.io/Foto/IMG_8618.JPG" 
+                             alt="Foto Pernikahan 4" 
+                             class="gallery-image"
+                             onclick="openLightbox('https://undanganonline.42web.io/Foto/IMG_8618.JPG')">
+                    </div>
+                    
+                    
+
+<div class="aspect-square">
+                        <img src="https://undanganonline.42web.io/Foto/IMG_8618.JPG" 
+                             alt="Foto Pernikahan 5" 
+                             class="gallery-image"
+                             onclick="openLightbox('https://undanganonline.42web.io/Foto/IMG_8618.JPG')">
+                    </div>
+
+                    
+
+<div class="aspect-square">
+                        <img src="https://undanganonline.42web.io/Foto/IMG_8618.JPG" 
+                             alt="Foto Pernikahan 6" 
+                             class="gallery-image"
+                             onclick="openLightbox('https://undanganonline.42web.io/Foto/IMG_8618.JPG')">
+                    </div>
+                </div>
+            </section>
+            
+
+<section id="countdown" class="py-16 reveal">
+                
+
+<div id="countdown-container" class="rounded-xl p-8 shadow-xl border border-pink-100">
+
+                    
+
+<img src="https://undanganonline.42web.io/tema/logo.png" 
+                         alt="Logo Hiasan" 
+                         class="logo-harian mx-auto"
+                         onerror="this.onerror=null;this.src='https://placehold.co/150x80/D4A3AE/FFFFFF?text=Logo+Hiasan'">
+
+                    <h2 class="script-font text-5xl mb-6 text-center kultural-text">Menghitung Hari</h2>
+                    
+                    <div id="timer" class="grid grid-cols-4 gap-3 md:gap-6 max-w-lg mx-auto bg-white p-4 md:p-8 rounded-xl shadow-inner border border-pink-200">
+                        <div class="kultural-bg text-white p-3 md:p-4 rounded-lg shadow-md">
+                            <span id="days" class="text-3xl md:text-5xl font-bold block">00</span>
+                            <span class="text-xs uppercase mt-1 block">Hari</span>
+                        </div>
+                        <div class="kultural-bg text-white p-3 md:p-4 rounded-lg shadow-md">
+                            <span id="hours" class="text-3xl md:text-5xl font-bold block">00</span>
+                            <span class="text-xs uppercase mt-1 block">Jam</span>
+                        </div>
+                        <div class="kultural-bg text-white p-3 md:p-4 rounded-lg shadow-md">
+                            <span id="minutes" class="text-3xl md:text-5xl font-bold block">00</span>
+                            <span class="text-xs uppercase mt-1 block">Menit</span>
+                        </div>
+                        <div class="kultural-bg text-white p-3 md:p-4 rounded-lg shadow-md">
+                            <span id="seconds" class="text-3xl md:text-5xl font-bold block">00</span>
+                            <span class="text-xs uppercase mt-1 block">Detik</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+
+<section id="events" class="py-16 reveal">
+                <h2 class="script-font text-5xl text-center mb-10 kultural-text">Detail Acara</h2>
+                <div class="grid md:grid-cols-2 gap-8">
+                    
+
+<div class="kultural-card p-6 bg-white rounded-xl shadow-2xl border-t-4 border-pink-400">
+                        <h3 class="font-bold text-2xl mb-4 kultural-text">Akad Nikah</h3>
+                        <p class="text-sm font-semibold kultural-text">Minggu, 14 Desember 2025</p>
+                        <p class="text-xl kultural-text mb-4">Pukul 07:00 WIB</p>
+                        <p class="text-lg font-medium mb-2">Lokasi:</p>
+                        <p class="text-base font-light">Gedung Soerokromo, Gedangan Sidoarjo</p>
+                        <a href="https://maps.app.goo.gl/..." target="_blank" class="mt-4 inline-block kultural-bg text-white py-2 px-4 rounded-full text-sm hover:bg-pink-700 transition duration-300">
+                            Lihat Lokasi
+                        </a>
+                    </div>
+                    
+
+<div class="kultural-card p-6 bg-white rounded-xl shadow-2xl border-t-4 border-pink-400">
+                        <h3 class="font-bold text-2xl mb-4 kultural-text">Resepsi</h3>
+                        <p class="text-sm font-semibold kultural-text">Minggu, 14 Desember 2025</p>
+                        <p class="text-xl kultural-text mb-4">Pukul 09:00 WIB</p>
+                        <p class="text-lg font-medium mb-2">Lokasi:</p>
+                        <p class="text-base font-light">Gedung Soerokromo, Gedangan Sidoarjo</p>
+                        <a href="https://maps.app.goo.gl/..." target="_blank" class="mt-4 inline-block kultural-bg text-white py-2 px-4 rounded-full text-sm hover:bg-pink-700 transition duration-300">
+                            Lihat Lokasi
+                        </a>
+                    </div>
+                </div>
+            </section>
+            
+
+<section id="location" class="py-16 reveal">
+                <h2 class="script-font text-5xl text-center mb-8 kultural-text">Peta Lokasi</h2>
+                <div class="map-container rounded-xl overflow-hidden shadow-2xl border border-pink-300">
+                    
+
+<iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.5756304899563!2d112.7297299!3d-7.2916611!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fb49392e2733%3A0x6b801a18206d2c49!2sGedung%20Serbaguna%20Soerokromo!5e0!3m2!1sen!2sid!4v1699920000000!5m2!1sen!2sid" 
+                        width="600" 
+                        height="450" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </section>
+            
+            
+            
+
+<section id="wedding-gift" class="py-16 reveal">
+                <h2 class="script-font text-5xl text-center mb-4 kultural-text">Hadiah Pernikahan</h2>
+                <p class="text-center mb-10 text-lg font-light">
+                    Doa restu Anda adalah karunia yang tak ternilai. Namun, jika Anda ingin memberikan hadiah, silakan kirim melalui transfer bank atau melalui alamat di bawah ini.
+                </p>
+
+                
+
+<div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    
+
+<div class="bank-card kultural-card">
+                        <h3 class="font-bold text-xl mb-4 kultural-text">Transfer Bank</h3>
+                        <p class="text-sm font-medium">Bank Mandiri</p>
+                        <p class="text-3xl font-bold my-3 kultural-text" id="rek-fani">1380017170889</p>
+                        <p class="text-sm mb-4">A.N. Fani Risaldi</p>
+                        <button 
+                            class="kultural-bg text-white font-semibold py-2 px-6 rounded-full shadow-lg copy-button"
+                            onclick="copyToClipboard('rek-fani', this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25v-2.25c0-1.026-.74-1.93-1.733-2.188L11.75 12h-1.75c-1.104 0-2 .896-2 2v2c0 1.104.896 2 2 2h1.75c1.026 0 1.93-.74 2.188-1.733L15.75 17.25zM17.25 17.25h-1.75c-.258 0-.496.103-.673.28l-.577.577c-.177.177-.28.415-.28.673v1.75c0 1.104.896 2 2 2h1.75c1.104 0 2-.896 2-2v-1.75c0-.258-.103-.496-.28-.673l-.577-.577c-.177-.177-.415-.28-.673-.28zM9 10.5V7.5c0-1.104.896-2 2-2h3c1.104 0 2 .896 2 2v1.5M7 17.25v-2.25c0-1.026-.74-1.93-1.733-2.188L3 12.25H1.25c-1.104 0-2 .896-2 2v2c0 1.104.896 2 2 2h1.75c1.026 0 1.93-.74 2.188-1.733L7 17.25zM9 10.5h6v7.5H9V10.5z"/>
+                            </svg>
+                            <span>Salin No. Rekening</span>
+                        </button>
+                    </div>
+
+                    
+
+<div class="bank-card kultural-card">
+                        <h3 class="font-bold text-xl mb-4 kultural-text">Kirim Kado Fisik</h3>
+                        <p class="text-base font-medium mb-2">Alamat Tujuan:</p>
+                        <p class="text-sm font-light leading-relaxed mb-4">
+                            Jl. Raya Gedangan No. 123, RT 01/RW 02, Kec. Gedangan, Kab. Sidoarjo, Jawa Timur (Kode Pos 61254)
+                        </p>
+                        <p class="text-sm font-light mb-4">
+                            <span class="font-medium">Penerima:</span> Fani/Adelia (Konfirmasi ke 0812-3456-7890)
+                        </p>
+                        <button 
+                            class="kultural-bg text-white font-semibold py-2 px-6 rounded-full shadow-lg copy-button"
+                            onclick="copyToClipboard('gift-address', this)">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5v.75m-4.5-5.25v.75m3 3v.75m-6 3v.75m6-3h.008v.008H15m-4.5-5.25h.008v.008H10.5m4.5 9.75h.008v.008H15m-4.5-9.75h.008v.008H10.5M8.25 6h7.5A2.25 2.25 0 0 1 18 8.25v10.5A2.25 2.25 0 0 1 15.75 21h-7.5A2.25 2.25 0 0 1 6 18.75V8.25A2.25 2.25 0 0 1 8.25 6Z" />
+                            </svg>
+                            <span>Salin Alamat</span>
+                        </button>
+                         
+
+<div id="gift-address" style="position: absolute; left: -9999px;">
+                            Jl. Raya Gedangan No. 123, RT 01/RW 02, Kec. Gedangan, Kab. Sidoarjo, Jawa Timur (Kode Pos 61254)
+                        </div>
+                    </div>
+                </div>
+            </section>        
+        </div>
+    </main>
+
+    
+
+<footer id="app-footer" class="reveal">
+        <div class="footer-content-container">
+            <p class="text-2xl font-light italic mb-8">Terima kasih atas kehadiran dan doa restu Anda.</p>
+            <h2 class="script-font text-5xl">Fani & Adelia</h2>
+        </div>
+    </footer>
+
+
+    <script type="module">
+        // --- Firebase Imports ---
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, addDoc, onSnapshot, collection, query, orderBy, serverTimestamp, setLogLevel } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        
+        // --- CONFIGURASI FIREBASE BARU DARI PENGGUNA ---
+        const firebaseConfig = {
+            apiKey: "AIzaSyDC_uOmXY7qbGBbWDo4VTyza02vEYYiyk", // Menggunakan kunci dari input sebelumnya
+            authDomain: "undangan-online-84485.firebaseapp.com",
+            projectId: "undangan-online-84485",
+            storageBucket: "undangan-online-84485.firebasestorage.app",
+            messagingSenderId: "71220902081",
+            appId: "1:71220902081:web:fc1f530e05b42f6820bc40",
+            measurementId: "G-7222HYHREZ"
+        };
+
+
+        // Data Acara
+        const weddingDate = new Date("2025-12-14T07:00:00").getTime();
+        
+        // --- Setup Firebase Instances and Global Variables ---
+        let db;
+        let auth;
+        let isFirebaseReady = false; // Ganti isAuthReady menjadi isFirebaseReady
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+        
+        // Firestore Pathing: Menggunakan public collection agar semua user bisa lihat
+        const GREETINGS_COLLECTION_PATH = 'artifacts/' + appId + '/public/data/wedding_greetings';
+        
+        // --- Gallery Logic Variables ---
+        const imageUrl = 'https://undanganonline.42web.io/Foto/IMG_8618.JPG';
+        const galleryImages = [
+            imageUrl,
+            imageUrl,
+            imageUrl,
+            imageUrl,
+            imageUrl,
+            imageUrl
+        ];
+        let currentImageIndex = 0;
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // 1. Determine Final Firebase Config
+            let finalConfig = firebaseConfig;
+            if (typeof __firebase_config !== 'undefined' && JSON.parse(__firebase_config) && Object.keys(JSON.parse(__firebase_config)).length > 0) {
+                 finalConfig = JSON.parse(__firebase_config);
+            } 
+            
+            // 2. Initialize Firebase Services
+            if (Object.keys(finalConfig).length === 0) {
+                console.error("Firebase config not found. Firestore will not function.");
+                // Jika config kosong, pastikan isFirebaseReady tetap false
+            } else {
+                try {
+                    const app = initializeApp(finalConfig);
+                    db = getFirestore(app);
+                    auth = getAuth(app);
+                    setLogLevel('Debug');
+                    
+                    // 3. Handle Authentication (Mandatory Canvas auth)
+                    if (typeof __initial_auth_token !== 'undefined') {
+                        // Tidak perlu await di sini, biarkan listener onAuthStateChanged yang handle
+                        signInWithCustomToken(auth, __initial_auth_token).catch(err => {
+                            console.error("Error signing in with custom token:", err);
+                            signInAnonymously(auth);
+                        });
+                    } else {
+                        signInAnonymously(auth);
+                    }
+
+                    // 4. Auth State Listener
+                    onAuthStateChanged(auth, (user) => {
+                        if (user) {
+                            console.log("Auth State Ready. UserId:", user.uid);
+                            isFirebaseReady = true; // Set flag setelah auth state diketahui
+                            loadGreetings(); // Panggil loadGreetings HANYA setelah otentikasi siap
+                        } else {
+                             // Jika sign-in gagal atau user keluar
+                            console.log("Auth State Failed/Signed Out.");
+                            isFirebaseReady = false;
+                            // Coba sign in anonim lagi jika belum ada user
+                            if (!auth.currentUser) {
+                                signInAnonymously(auth);
+                            }
+                        }
+                    });
+                } catch (error) {
+                    console.error("Error initializing Firebase:", error);
+                }
+            }
+        });
+
+        // --- Core Functions ---
+        
+        // Global function to copy text to clipboard (Updated)
+        function copyToClipboard(elementId, buttonElement) {
+            const textToCopy = document.getElementById(elementId).textContent.trim();
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // Ganti teks tombol sebentar
+            const originalHtml = buttonElement.innerHTML;
+            buttonElement.innerHTML = `
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                </svg>
+                <span>Berhasil Disalin!</span>
+            `;
+            
+            setTimeout(() => {
+                buttonElement.innerHTML = originalHtml;
+            }, 1500);
+        }
+        window.copyToClipboard = copyToClipboard; // Expose globally
+
+        // 1. Open Invitation & Start Music
+        document.getElementById('open-btn').addEventListener('click', () => {
+            const cover = document.getElementById('cover');
+            const mainContent = document.getElementById('main-content');
+            const audio = document.getElementById('background-audio');
+            const musicToggle = document.getElementById('music-toggle');
+            
+            // Hide Cover smoothly
+            cover.style.opacity = '0';
+            setTimeout(() => {
+                cover.style.display = 'none';
+                mainContent.classList.remove('hidden');
+                document.body.style.overflow = 'auto';
+                musicToggle.classList.remove('hidden');
+                
+                // Mulai musik latar (volume dikecilkan)
+                audio.volume = 0.3; 
+                audio.play().catch(error => {
+                    console.log("Autoplay audio prevented:", error);
+                });
+                
+
+            }, 1000); // Matches transition duration
+
+            // Start scroll observer
+            initScrollAnimations();
+        });
+
+        // 2. Music Toggle
+        const audioEl = document.getElementById('background-audio');
+        document.getElementById('music-toggle').addEventListener('click', () => {
+            const musicOn = document.getElementById('music-on');
+            const musicOff = document.getElementById('music-off');
+
+            if (audioEl.paused) {
+                audioEl.play();
+                musicOn.classList.remove('hidden');
+                musicOff.classList.add('hidden');
+            } else {
+                audioEl.pause();
+                musicOn.classList.add('hidden');
+                musicOff.classList.remove('hidden');
+            }
+        });
+
+        // 3. Countdown Timer
+        const countdownTimer = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days.toString().padStart(2, '0');
+            document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById("countdown").innerHTML = "<h2 class='script-font text-5xl mb-6 kultural-text'>Alhamdulillah, Kami Telah Sah!</h2><p>Selamat datang di hari bahagia kami.</p>";
+            }
+        }, 1000);
+
+        // 4. Scroll Reveal Animations (Parallax/Fade-in)
+        function initScrollAnimations() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                    } else {
+                        // Optional: remove 'active' when leaving view if desired
+                        // entry.target.classList.remove('active'); 
+                    }
+                });
+            }, {
+                rootMargin: '0px',
+                threshold: 0.2
+            });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        }
+
+        // 5. Greeting Submission (Uses public app-scoped collection)
+        document.getElementById('greeting-form')?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('greeting-name').value.trim();
+            const message = document.getElementById('greeting-message').value.trim();
+            const statusEl = document.getElementById('greeting-message-status');
+            
+            if (!name || !message) {
+                 statusEl.textContent = 'Nama dan pesan harus diisi.';
+                 statusEl.className = 'text-center mt-4 text-sm font-medium text-red-500';
+                 return;
+            }
+
+            // Pengecekan Kesiapan Firebase/Firestore
+            if (!db || !isFirebaseReady) {
+                console.error("Firebase DB/Auth belum siap. isFirebaseReady:", isFirebaseReady);
+                statusEl.textContent = 'Sistem belum siap. Coba lagi.'; // Pesan yang sama, tetapi sekarang penyebabnya jelas di konsol
+                statusEl.className = 'text-center mt-4 text-sm font-medium text-red-500';
+                return;
+            }
+            
+            statusEl.textContent = 'Mengirim ucapan...';
+            statusEl.className = 'text-center mt-4 text-sm font-medium text-blue-500';
+
+            const submitButton = e.submitter;
+            submitButton.disabled = true; // Nonaktifkan tombol saat mengirim
+            submitButton.classList.add('opacity-50');
+
+            try {
+                const colRef = collection(db, GREETINGS_COLLECTION_PATH);
+
+                await addDoc(colRef, {
+                    name: name,
+                    message: message,
+                    timestamp: serverTimestamp() // Firestore will automatically set the server time
+                });
+
+                statusEl.textContent = 'Ucapan dan doa Anda berhasil dikirim!';
+                statusEl.className = 'text-center mt-4 text-sm font-medium text-green-500';
+
+                document.getElementById('greeting-name').value = '';
+                document.getElementById('greeting-message').value = '';
+
+            } catch (error) {
+                // Tampilkan error ke konsol untuk debug
+                console.error("Error submitting greeting. Ini mungkin karena Aturan Keamanan Firebase:", error);
+                statusEl.textContent = 'Gagal mengirim ucapan. Silakan coba lagi.';
+                statusEl.className = 'text-center mt-4 text-sm font-medium text-red-500';
+            } finally {
+                 submitButton.disabled = false;
+                 submitButton.classList.remove('opacity-50');
+            }
+        });
+
+        // 6. Load and Display Greetings (Real-time with onSnapshot)
+        function loadGreetings() {
+            if (!db || !isFirebaseReady) return; // Pemeriksaan Kesiapan
+            
+            const listEl = document.getElementById('greetings-list');
+            const loadingEl = document.getElementById('loading-greetings');
+            
+            // Perlihatkan loading jika sedang memuat
+            loadingEl.style.display = 'block';
+            loadingEl.textContent = "Memuat ucapan...";
+            loadingEl.className = 'text-center text-gray-500';
+            
+            // Query untuk mendapatkan data, diurutkan berdasarkan timestamp terbaru (desc)
+            const q = query(collection(db, GREETINGS_COLLECTION_PATH), 
+                                     orderBy('timestamp', 'desc'));
+
+            // onSnapshot akan mendengarkan perubahan secara real-time
+            onSnapshot(q, (snapshot) => {
+                loadingEl.style.display = 'none';
+                listEl.innerHTML = ''; // Kosongkan daftar sebelum mengisi ulang
+
+                if (snapshot.empty) {
+                    listEl.innerHTML = '<p class="text-center text-gray-500">Belum ada ucapan. Jadilah yang pertama!</p>';
+                    return;
+                }
+
+                snapshot.forEach((doc) => {
+                    const data = doc.data();
+                    
+                    // Format timestamp
+                    const timestamp = data.timestamp;
+                    let dateStr = 'Baru saja';
+                    if (timestamp && timestamp.toDate) {
+                         dateStr = timestamp.toDate().toLocaleString('id-ID', {
+                            day: 'numeric', month: 'short', year: 'numeric', hour: '2-digit', minute: '2-digit'
+                        });
+                    }
+                    
+                    // Buat card ucapan
+                    const greetingCard = `
+                        <div class="kultural-card p-4 bg-white rounded-xl shadow-md border-l-4 border-pink-400">
+                            <p class="font-bold kultural-text text-lg">${data.name}</p>
+                            <p class="text-xs text-gray-500 mb-2">${dateStr}</p>
+                            <p class="text-base font-light whitespace-pre-wrap">${data.message}</p>
+                        </div>
+                    `;
+                    listEl.innerHTML += greetingCard;
+                });
+
+            }, (error) => {
+                console.error("Error fetching greetings (Aturan Keamanan?):", error);
+                // Tampilkan pesan error jika onSnapshot gagal
+                loadingEl.style.display = 'block';
+                loadingEl.textContent = "Gagal memuat ucapan. Pastikan Aturan Keamanan sudah benar.";
+                loadingEl.className = 'text-center text-red-500';
+            });
+        }
+        
+        // Setup guest name if provided in URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const guest = urlParams.get('to');
+        if (guest) {
+            document.getElementById('guest-name').textContent = decodeURIComponent(guest.replace(/\+/g, ' '));
+        }
+
+        // Initial setup for body to prevent scrolling until cover is opened
+        document.body.style.overflow = 'hidden';
+
+        
+        // --- Lightbox/Gallery Logic ---
+        function openLightbox(imageUrl) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            
+            // Cari index gambar yang diklik
+            const element = document.querySelector(`.gallery-image[src="${imageUrl}"]`);
+            if (!element) return;
+            
+            const allImages = Array.from(document.querySelectorAll('.gallery-image'));
+            // Gunakan `galleryImages` yang sudah terdefinisi di atas untuk navigasi
+            currentImageIndex = allImages.findIndex(img => img.src === element.src);
+
+            lightboxImage.src = imageUrl;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            document.body.style.overflow = 'hidden'; // Mencegah scrolling saat lightbox terbuka
+            
+            // Tampilkan/sembunyikan tombol navigasi
+            const navPrev = document.getElementById('lightbox-prev');
+            const navNext = document.getElementById('lightbox-next');
+            if (galleryImages.length > 1) {
+                navPrev.style.display = 'block';
+                navNext.style.display = 'block';
+            } else {
+                navPrev.style.display = 'none';
+                navNext.style.display = 'none';
+            }
+
+            updateNavVisibility(); // Perbarui visibility berdasarkan index
+        }
+        window.openLightbox = openLightbox;
+
+        function closeLightbox(event) {
+            // Tutup hanya jika mengklik background atau tombol close
+            if (event.target.id === 'lightbox' || event.target.closest('button')?.textContent.trim() === '×') {
+                const lightbox = document.getElementById('lightbox');
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = 'auto'; // Mengizinkan scrolling kembali
+            }
+        }
+        window.closeLightbox = closeLightbox;
+        
+        function updateNavVisibility() {
+            const navPrev = document.getElementById('lightbox-prev');
+            const navNext = document.getElementById('lightbox-next');
+            
+            if (galleryImages.length <= 1) return;
+
+            navPrev.style.opacity = currentImageIndex === 0 ? '0.2' : '0.7';
+            navNext.style.opacity = currentImageIndex === galleryImages.length - 1 ? '0.2' : '0.7';
+        }
+
+
+        function prevImage(event) {
+            event.stopPropagation();
+            if (currentImageIndex > 0) {
+                currentImageIndex--;
+                document.getElementById('lightbox-image').src = galleryImages[currentImageIndex];
+                updateNavVisibility();
+            }
+        }
+        window.prevImage = prevImage;
+
+        function nextImage(event) {
+            event.stopPropagation();
+            if (currentImageIndex < galleryImages.length - 1) {
+                currentImageIndex++;
+                document.getElementById('lightbox-image').src = galleryImages[currentImageIndex];
+                updateNavVisibility();
+            }
+        }
+        window.nextImage = nextImage;
+        
+    </script>
+</body>
+</html>
