@@ -7,7 +7,6 @@ define('DB_USERNAME', 'if0_40041281'); // <-- GANTI INI
 define('DB_PASSWORD', 'hzpPrbU6LLB27xv'); // <-- GANTI INI
 define('DB_NAME', 'if0_40041281_terbaru'); // <-- GANTI INI
 define('TABLE_GREETINGS', 'greetings'); // Nama tabel untuk ucapan
-
 // Fungsi koneksi database
 function connectDB() {
     $conn = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
